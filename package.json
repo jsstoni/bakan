@@ -7,6 +7,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
+    "prepare": "husky",
     "lint": "biome check",
     "format": "biome format --write",
     "db:push": "drizzle-kit push"
