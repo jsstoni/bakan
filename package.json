@@ -11,9 +11,11 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@t3-oss/env-nextjs": "0.13.8",
     "next": "15.6.0-canary.36",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "zod": "4.1.11"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
