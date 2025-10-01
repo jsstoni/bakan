@@ -1,7 +1,7 @@
-import { requireUser } from "@/utils/require-user";
-
 export default async function Dashboard() {
-  await requireUser();
-
-  return <p>Dashboard</p>;
+  return (
+    <main className="container mx-auto py-6">
+      <p>Dashboard</p>
+    </main>
+  );
 }

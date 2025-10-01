@@ -40,7 +40,7 @@ export function Profile() {
           <AvatarFallback>{getInitials(session.user.name)}</AvatarFallback>
         </Avatar>
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent align="end">
         <p>{session.user.name}</p>
         <p className="text-muted-foreground">{session.user.email}</p>
         <Button size={"sm"} onClick={logout}>
