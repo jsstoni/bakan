@@ -8,8 +8,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Skeleton } from "@/components/ui/skeleton";
+import { authClient } from "@/lib/auth/auth-client";
 import { getInitials } from "@/lib/utils";
-import { authClient } from "@/utils/auth-client";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 

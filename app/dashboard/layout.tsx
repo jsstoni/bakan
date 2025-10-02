@@ -1,5 +1,5 @@
 import { TopBar } from "@/app/dashboard/_components/top-bar";
-import { requireUser } from "@/utils/require-user";
+import { requireUser } from "@/lib/auth/require-user";
 
 export default async function Layout({
   children,
