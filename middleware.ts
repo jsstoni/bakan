@@ -1,6 +1,6 @@
-import { createMiddleware, defaults, type Options } from "@nosecone/next";
+import { createMiddleware, defaults, type Options } from '@nosecone/next';
 
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = process.env.NODE_ENV === 'production';
 
 const nonceOptions: Options = {
   ...defaults,
@@ -10,9 +10,9 @@ const nonceOptions: Options = {
       ...defaults.contentSecurityPolicy.directives,
       imgSrc: [
         ...defaults.contentSecurityPolicy.directives.imgSrc,
-        "https://lh3.googleusercontent.com",
+        'https://lh3.googleusercontent.com',
       ],
-      frameSrc: ["https://www.youtube.com/"],
+      frameSrc: ['https://www.youtube.com/'],
       scriptSrc: isProduction
         ? [...defaults.contentSecurityPolicy.directives.scriptSrc]
         : ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
@@ -20,7 +20,7 @@ const nonceOptions: Options = {
     },
   },
   crossOriginEmbedderPolicy: {
-    policy: "unsafe-none",
+    policy: 'unsafe-none',
   },
 };
 

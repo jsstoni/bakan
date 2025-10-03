@@ -1,5 +1,5 @@
-import { Profile } from "@/app/dashboard/_components/profile";
-import { ToggleTheme } from "@/components/toggle-theme";
+import { Profile } from '@/app/dashboard/_components/profile';
+import { ToggleTheme } from '@/components/toggle-theme';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -7,15 +7,15 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import type { UrlObject } from "node:url";
-import { Home, type LucideIcon, Menu } from "lucide-react";
-import Link from "next/link";
+} from '@/components/ui/navigation-menu';
+import { Home, type LucideIcon, Menu } from 'lucide-react';
+import type { Route } from 'next';
+import Link from 'next/link';
 
-type SubMenu = {
+type SubMenu<T extends string = string> = {
   icon?: LucideIcon;
   label: string;
-  href: UrlObject | __next_route_internal_types__.RouteImpl<string>;
+  href: Route<T> | URL;
 };
 
 type NavigationLinks = {
@@ -23,12 +23,12 @@ type NavigationLinks = {
 } & SubMenu;
 
 const navigationLinks: NavigationLinks[] = [
-  { href: "/dashboard", label: "Home", icon: Home },
+  { href: '/dashboard', label: 'Home', icon: Home },
   {
-    href: "#",
-    label: "Menus",
+    href: '#',
+    label: 'Menus',
     icon: Menu,
-    items: [{ href: "#", label: "Option 01" }],
+    items: [{ href: '#', label: 'Option 01' }],
   },
 ];
 

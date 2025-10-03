@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { Skeleton } from "@/components/ui/skeleton";
-import { authClient } from "@/lib/auth/auth-client";
-import { getInitials } from "@/lib/utils";
-import { LogOut } from "lucide-react";
-import { useRouter } from "next/navigation";
+} from '@/components/ui/popover';
+import { Skeleton } from '@/components/ui/skeleton';
+import { authClient } from '@/lib/auth/auth-client';
+import { getInitials } from '@/lib/utils';
+import { LogOut } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export function Profile() {
   const router = useRouter();
@@ -21,7 +21,7 @@ export function Profile() {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push("/signin");
+          router.push('/signin');
         },
       },
     });
@@ -43,7 +43,7 @@ export function Profile() {
       <PopoverContent align="end">
         <p>{session.user.name}</p>
         <p className="text-muted-foreground">{session.user.email}</p>
-        <Button size={"sm"} onClick={logout}>
+        <Button size={'sm'} onClick={logout}>
           <LogOut /> Logout
         </Button>
       </PopoverContent>

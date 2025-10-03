@@ -4,14 +4,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/form';
+import { cn } from '@/lib/utils';
 import type {
   Control,
   ControllerRenderProps,
   FieldPath,
   FieldValues,
-} from "react-hook-form";
+} from 'react-hook-form';
 
 interface FieldProps<
   TFieldValues extends FieldValues,
@@ -22,7 +22,7 @@ interface FieldProps<
   label?: string;
   className?: string;
   render: (
-    field: ControllerRenderProps<TFieldValues, TName>,
+    field: ControllerRenderProps<TFieldValues, TName>
   ) => React.ReactNode;
 }
 

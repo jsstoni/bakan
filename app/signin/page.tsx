@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import Card from "@/components/card";
-import { Field } from "@/components/field";
-import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { authClient } from "@/lib/auth/auth-client";
-import { userSchema } from "@/types/user";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import Card from '@/components/card';
+import { Field } from '@/components/field';
+import { Button } from '@/components/ui/button';
+import { Form } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { authClient } from '@/lib/auth/auth-client';
+import { userSchema } from '@/types/user';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 export default function SignIn() {
   const form = useForm({
     resolver: zodResolver(userSchema),
-    defaultValues: { email: "", password: "" },
+    defaultValues: { email: '', password: '' },
   });
 
   const onSubmit = form.handleSubmit(async (data) => {
     const { error } = await authClient.signIn.email({
       email: data.email,
       password: data.password,
-      callbackURL: "/dashboard",
+      callbackURL: '/dashboard',
     });
 
     if (error) {

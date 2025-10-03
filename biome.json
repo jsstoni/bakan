@@ -7,19 +7,21 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": [
-      "**",
-      "!node_modules",
-      "!.next",
-      "!dist",
-      "!build"
-    ]
+    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "single",
+      "trailingCommas": "es5",
+      "semicolons": "always"
+    }
   },
   "linter": {
     "enabled": true,
@@ -33,11 +35,7 @@
           "level": "warn",
           "fix": "safe",
           "options": {
-            "functions": [
-              "clsx",
-              "cva",
-              "cn"
-            ]
+            "functions": ["clsx", "cva", "cn"]
           }
         }
       },
@@ -68,13 +66,7 @@
         "organizeImports": {
           "level": "on",
           "options": {
-            "groups": [
-              ":ALIAS:",
-              ":PATH:",
-              ":NODE:",
-              ":PACKAGE:",
-              ":URL:"
-            ]
+            "groups": [":ALIAS:", ":PATH:", ":NODE:", ":PACKAGE:", ":URL:"]
           }
         }
       }

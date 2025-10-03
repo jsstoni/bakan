@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import Card from "@/components/card";
-import { Field } from "@/components/field";
-import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { authClient } from "@/lib/auth/auth-client";
-import { registerSchema } from "@/types/user";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import Card from '@/components/card';
+import { Field } from '@/components/field';
+import { Button } from '@/components/ui/button';
+import { Form } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { authClient } from '@/lib/auth/auth-client';
+import { registerSchema } from '@/types/user';
+import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 export default function SignUp() {
   const form = useForm({
     resolver: zodResolver(registerSchema),
-    defaultValues: { email: "", name: "", password: "", repassword: "" },
+    defaultValues: { email: '', name: '', password: '', repassword: '' },
   });
 
   const onSubmit = form.handleSubmit(async (data) => {
@@ -60,7 +60,7 @@ export default function SignUp() {
               render={(field) => <Input type="password" {...field} />}
             />
             <p>
-              Already a user?{" "}
+              Already a user?{' '}
               <Link className="font-bold hover:underline" href="/signin">
                 Login
               </Link>
