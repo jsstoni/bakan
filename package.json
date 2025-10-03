@@ -9,7 +9,7 @@
     "start": "next start",
     "prepare": "husky",
     "lint": "biome check",
-    "format": "biome format --write",
+    "format": "biome check --write",
     "db:push": "drizzle-kit push"
   },
   "dependencies": {
@@ -42,6 +42,7 @@
     "react-hook-form": "7.63.0",
     "server-only": "0.0.1",
     "sonner": "2.0.7",
+    "stripe": "19.0.0",
     "tailwind-merge": "3.3.1",
     "zod": "4.1.11"
   },
