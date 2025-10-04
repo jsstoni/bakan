@@ -2,12 +2,18 @@
 
 import Card from '@/components/card';
 import { Field } from '@/components/field';
+import { Password } from '@/components/password';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '@/components/ui/input-group';
 import { authClient } from '@/lib/auth/auth-client';
 import { registerSchema } from '@/types/user';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { MailIcon, UserIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -39,25 +45,47 @@ export default function SignUp() {
               control={form.control}
               name="name"
               label="Name"
-              render={(field) => <Input type="text" {...field} />}
+              render={(field) => (
+                <InputGroup>
+                  <InputGroupInput
+                    type="text"
+                    placeholder="jhon doe"
+                    {...field}
+                  />
+                  <InputGroupAddon>
+                    <UserIcon />
+                  </InputGroupAddon>
+                </InputGroup>
+              )}
             />
             <Field
               control={form.control}
               name="email"
               label="Email"
-              render={(field) => <Input type="email" {...field} />}
+              render={(field) => (
+                <InputGroup>
+                  <InputGroupInput
+                    type="email"
+                    placeholder="Enter your email"
+                    {...field}
+                  />
+                  <InputGroupAddon>
+                    <MailIcon />
+                  </InputGroupAddon>
+                </InputGroup>
+              )}
             />
             <Field
               control={form.control}
               name="password"
               label="Password"
-              render={(field) => <Input type="password" {...field} />}
+              render={(field) => <Password field={field} />}
             />
             <Field
               control={form.control}
               name="repassword"
               label="Repeat password"
-              render={(field) => <Input type="password" {...field} />}
+              render={(field) => <Password field={field} />}
             />
             <p>
               Already a user?{' '}

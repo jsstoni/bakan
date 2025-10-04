@@ -2,12 +2,18 @@
 
 import Card from '@/components/card';
 import { Field } from '@/components/field';
+import { Password } from '@/components/password';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '@/components/ui/input-group';
 import { authClient } from '@/lib/auth/auth-client';
 import { userSchema } from '@/types/user';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { MailIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -42,13 +48,24 @@ export default function SignIn() {
               control={form.control}
               name="email"
               label="Email"
-              render={(field) => <Input type="email" {...field} />}
+              render={(field) => (
+                <InputGroup>
+                  <InputGroupInput
+                    type="email"
+                    placeholder="Enter your email"
+                    {...field}
+                  />
+                  <InputGroupAddon>
+                    <MailIcon />
+                  </InputGroupAddon>
+                </InputGroup>
+              )}
             />
             <Field
               control={form.control}
               name="password"
               label="Password"
-              render={(field) => <Input type="password" {...field} />}
+              render={(field) => <Password field={field} />}
             />
             <Button size="sm">Login</Button>
           </form>
