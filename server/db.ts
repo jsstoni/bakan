@@ -1,5 +1,5 @@
 import { env } from '@/lib/env';
-import * as user from '@/server/schema/user';
+import * as user from '@/server/models/user';
 import { drizzle } from 'drizzle-orm/node-postgres';
 
 export const db = drizzle(env.DATABASE_URL, {
