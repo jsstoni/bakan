@@ -5,7 +5,10 @@ import { redirect } from 'next/navigation';
 import { cache } from 'react';
 
 export const getSession = cache(async () => {
-  return await auth.api.getSession({ headers: await headers() });
+  const session = await auth.api.getSession({ headers: await headers() });
+  if (!session) return null;
+  const { user } = session;
+  return user;
 });
 
 export const requireUser = cache(async () => {
@@ -15,7 +18,5 @@ export const requireUser = cache(async () => {
     redirect('/');
   }
 
-  const { user } = session;
-
-  return user;
+  return !!session;
 });
