@@ -52,7 +52,9 @@
         "noUselessElse": "error"
       },
       "a11y": {
-        "noSvgWithoutTitle": "off"
+        "noSvgWithoutTitle": "off",
+        "useKeyWithClickEvents": "warn",
+        "noStaticElementInteractions": "warn"
       }
     },
     "domains": {
