@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 
 export default function SignUp() {
   return (
-    <Card title="Create your account" className="min-w-sm">
+    <Card
+      title="Create your account"
+      description="Just a few quick things to get started"
+      className="min-w-sm"
+    >
       <SignUpForm />
     </Card>
   );

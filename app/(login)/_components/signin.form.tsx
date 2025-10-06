@@ -9,10 +9,12 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from '@/components/ui/input-group';
+import { Spinner } from '@/components/ui/spinner';
 import { authClient } from '@/lib/auth/auth-client';
 import { userSchema } from '@/types/user';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { MailIcon } from 'lucide-react';
+import { ArrowRight, MailIcon } from 'lucide-react';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -60,7 +62,17 @@ export function SignInForm() {
           label="Password"
           render={(field) => <Password field={field} />}
         />
-        <Button size="sm">Login</Button>
+
+        <Button type="submit">
+          {form.formState.isSubmitting && <Spinner />} Login <ArrowRight />
+        </Button>
+
+        <p>
+          Don't have an account?{' '}
+          <Link className="font-bold hover:underline" href="/signup">
+            Sign Up
+          </Link>
+        </p>
       </form>
     </Form>
   );

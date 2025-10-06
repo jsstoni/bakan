@@ -11,7 +11,7 @@ export default function SignIn() {
   return (
     <Card
       title="Login to your account"
-      description="Enter your email below to login to your account"
+      description="Welcome back you've been missed!"
       className="min-w-sm"
     >
       <SignInForm />

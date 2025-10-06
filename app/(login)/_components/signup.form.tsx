@@ -9,10 +9,11 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from '@/components/ui/input-group';
+import { Spinner } from '@/components/ui/spinner';
 import { authClient } from '@/lib/auth/auth-client';
 import { registerSchema } from '@/types/user';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { MailIcon, UserIcon } from 'lucide-react';
+import { ArrowRight, MailIcon, UserIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -33,6 +34,8 @@ export function SignUpForm() {
     if (error) {
       return toast.error(error.message);
     }
+    toast.success('Account created successfully');
+    form.reset();
   });
 
   return (
@@ -81,12 +84,15 @@ export function SignUpForm() {
           render={(field) => <Password field={field} />}
         />
         <p>
-          Already a user?{' '}
+          Already have an account?{' '}
           <Link className="font-bold hover:underline" href="/signin">
-            Login
+            Sign In
           </Link>
         </p>
-        <Button type="submit">Create account</Button>
+        <Button type="submit">
+          {form.formState.isSubmitting && <Spinner />} Create account{' '}
+          <ArrowRight />
+        </Button>
       </form>
     </Form>
   );
