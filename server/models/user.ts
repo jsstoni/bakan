@@ -1,3 +1,5 @@
+import { subscription } from '@/server/models/subscription';
+import { relations } from 'drizzle-orm';
 import {
   boolean,
   pgTable,
@@ -66,3 +68,7 @@ export const verification = pgTable('verifications', {
     () => /* @__PURE__ */ new Date()
   ),
 });
+
+export const usersRelations = relations(user, ({ one }) => ({
+  subscriptions: one(subscription),
+}));
