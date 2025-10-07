@@ -14,8 +14,20 @@ const nonceOptions: Options = {
       ],
       frameSrc: ['https://www.youtube.com/'],
       scriptSrc: isProduction
-        ? [...defaults.contentSecurityPolicy.directives.scriptSrc]
-        : ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        ? [
+            ...defaults.contentSecurityPolicy.directives.scriptSrc,
+            'https://www.googletagmanager.com',
+          ]
+        : [
+            "'self'",
+            "'unsafe-inline'",
+            "'unsafe-eval'",
+            'https://www.googletagmanager.com',
+          ],
+      connectSrc: [
+        ...defaults.contentSecurityPolicy.directives.connectSrc,
+        'https://www.google-analytics.com',
+      ],
       upgradeInsecureRequests: isProduction,
     },
   },

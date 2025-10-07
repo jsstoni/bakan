@@ -3,6 +3,7 @@
 * Authentication - better-auth
 * UI - Shadcn
 * Payments - Stripe
+* Analytics - Google Analytics
 
 ## Stripe
 
