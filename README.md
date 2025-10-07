@@ -1,3 +1,8 @@
+# Bakan
+NEXT.js APP Router
+
+### Packages
+
 * Environment variables - @t3-oss/env-nextjs
 * Schema validation - Zod
 * Authentication - better-auth
@@ -5,7 +10,7 @@
 * Payments - Stripe
 * Analytics - Google Analytics
 
-## Stripe
+### Stripe
 
 This project uses Stripe for payment processing. To set up Stripe, follow these steps:
 
