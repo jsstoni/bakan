@@ -64,7 +64,7 @@ export function SignInForm() {
         />
 
         <div>
-          <Link href="/forgot" className="font-bold hover:underline">
+          <Link href="/forgot-password" className="font-bold hover:underline">
             Forgot Password?
           </Link>
         </div>

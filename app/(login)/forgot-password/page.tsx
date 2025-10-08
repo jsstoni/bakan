@@ -11,7 +11,7 @@ export default function Forgot() {
   return (
     <Card
       title="Forgot your Password?"
-      description="a code will be sent to your email to help reset password"
+      description="A link will be sent to your email to reset your password."
       className="min-w-sm"
     >
       <ForgotForm />
