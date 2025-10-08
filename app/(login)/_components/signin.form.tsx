@@ -63,6 +63,12 @@ export function SignInForm() {
           render={(field) => <Password field={field} />}
         />
 
+        <div>
+          <Link href="/forgot" className="font-bold hover:underline">
+            Forgot Password?
+          </Link>
+        </div>
+
         <Button type="submit">
           {form.formState.isSubmitting && <Spinner />} Login <ArrowRight />
         </Button>
