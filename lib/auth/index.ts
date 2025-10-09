@@ -18,8 +18,8 @@ export const auth = betterAuth({
   },
   emailAndPassword: {
     enabled: true,
-    sendResetPassword: async ({ token }) => {
-      console.log(`token: ${token}`);
+    sendResetPassword: async ({ token, url }) => {
+      console.log(`token: ${token}`, url);
     },
   },
   telemetry: {
