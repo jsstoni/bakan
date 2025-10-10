@@ -17,28 +17,33 @@ export function SwithPrice({ products }: { products: StripeProductMap }) {
   };
 
   return (
-    <div className="container mx-auto">
-      {products.map((product, i) => {
-        const [productId, data] = Object.entries(product)[i];
-        return (
-          <div className="space-y-1" key={productId}>
-            <div className="flex items-center justify-between">
-              <h3 className="font-bold text-3xl">{data.productName}</h3>
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="interval"
-                  checked={interval === 'year'}
-                  onChange={handleChange}
-                />
-                <label htmlFor="interval">Pay yearly</label>
+    <section className="mx-auto max-w-4xl py-10 md:py-20">
+      <div className="grid grid-cols-2">
+        {products.map((product, i) => {
+          const [productId, data] = Object.entries(product)[i];
+          return (
+            <div
+              className="space-y-1 rounded-lg border bg-accent p-8"
+              key={productId}
+            >
+              <div className="flex items-center justify-between">
+                <h3 className="font-bold text-3xl">{data.productName}</h3>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    id="interval"
+                    checked={interval === 'year'}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="interval">Pay yearly</label>
+                </div>
               </div>
+              <ProductPrice intervals={data.intervals} type={interval} />
             </div>
-            <ProductPrice intervals={data.intervals} type={interval} />
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
