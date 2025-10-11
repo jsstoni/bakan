@@ -27,6 +27,7 @@ const nonceOptions: Options = {
       connectSrc: [
         ...defaults.contentSecurityPolicy.directives.connectSrc,
         'https://www.google-analytics.com',
+        'https://ungh.cc',
       ],
       upgradeInsecureRequests: isProduction,
     },
