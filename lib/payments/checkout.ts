@@ -1,7 +1,7 @@
 'use server';
 
 import { getSession } from '@/lib/auth/require-user';
-import { env } from '@/lib/env';
+import { env } from '@/lib/env/env-client';
 import { stripe } from '@/lib/payments/stripe';
 import type { Route } from 'next';
 import { redirect } from 'next/navigation';
@@ -23,8 +23,8 @@ export async function createCheckoutSession(formData: FormData) {
       },
     ],
     mode: 'subscription',
-    success_url: `${env.BASE_URL}/api/stripe/checkout?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${env.BASE_URL}/`,
+    success_url: `${env.NEXT_PUBLIC_BASE_URL}/api/stripe/checkout?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${env.NEXT_PUBLIC_BASE_URL}/`,
     customer_email: session.email,
     client_reference_id: session.id,
     allow_promotion_codes: true,
