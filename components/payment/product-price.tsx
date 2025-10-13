@@ -17,33 +17,31 @@ export function SwithPrice({ products }: { products: StripeProductMap }) {
   };
 
   return (
-    <section className="mx-auto max-w-4xl py-10 md:py-20">
-      <div className="grid grid-cols-2">
-        {products.map((product, i) => {
-          const [productId, data] = Object.entries(product)[i];
-          return (
-            <div
-              className="space-y-1 rounded-lg border bg-accent p-8"
-              key={productId}
-            >
-              <div className="flex items-center justify-between">
-                <h3 className="font-bold text-3xl">{data.productName}</h3>
-                <div className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    id="interval"
-                    checked={interval === 'year'}
-                    onChange={handleChange}
-                  />
-                  <label htmlFor="interval">Pay yearly</label>
-                </div>
+    <div className="mt-10 grid grid-cols-2">
+      {products.map((product, i) => {
+        const [productId, data] = Object.entries(product)[i];
+        return (
+          <div
+            className="space-y-1 rounded-lg border-2 border-blue-400 p-8 shadow-lg"
+            key={productId}
+          >
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-2xl">{data.productName}</h3>
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="interval"
+                  checked={interval === 'year'}
+                  onChange={handleChange}
+                />
+                <label htmlFor="interval">Pay yearly</label>
               </div>
-              <ProductPrice intervals={data.intervals} type={interval} />
             </div>
-          );
-        })}
-      </div>
-    </section>
+            <ProductPrice intervals={data.intervals} type={interval} />
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
@@ -60,8 +58,11 @@ function ProductPrice({
 
   return (
     <>
-      <p className="font-medium text-green-700 text-lg">
-        ${product.price / 100}
+      <p className="font-bold text-3xl text-green-700">
+        ${product.price / 100}{' '}
+        <span className="font-normal text-muted-foreground text-sm">
+          /{type === 'month' ? 'Monthly' : 'Yearly'}
+        </span>
       </p>
       <Checkout priceId={product.id} />
     </>

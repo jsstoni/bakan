@@ -7,7 +7,10 @@ import {
 import Link from 'next/link';
 
 type Menu = { title: string; href: string };
-const menu: Menu[] = [{ title: 'Sing In', href: '/signin' }];
+const menu: Menu[] = [
+  { title: 'Pricing', href: '/pricing' },
+  { title: 'Sing In', href: '/signin' },
+];
 
 export function Navigation() {
   return (
