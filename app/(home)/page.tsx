@@ -1,8 +1,3 @@
-import { GithubLink } from '@/components/github-link';
-import { Logo } from '@/components/logo';
-import { Navigation } from '@/components/nav';
-import { SwithPrice } from '@/components/payment/product-price';
-import { ToggleTheme } from '@/components/toggle-theme';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -12,28 +7,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { getStripePrices } from '@/lib/payments/stripe';
 import { ArrowRightIcon } from 'lucide-react';
 
-export default async function Home() {
-  const products = await getStripePrices();
+export default function Home() {
   return (
     <>
-      <header className="fixed top-0 w-full border-b shadow-xs backdrop-blur">
-        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Logo className="size-6 fill-black dark:fill-white" />
-            <span className="font-semibold text-lg">Bakan</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Navigation />
-            <GithubLink />
-            <ToggleTheme />
-          </div>
-        </div>
-      </header>
-
       <section className="mx-auto mt-14 max-w-5xl space-y-4 py-20 text-center md:py-34">
         <Badge>Beta - Next.js Boilerplate</Badge>
         <h1 className="text-balance font-black text-4xl tracking-tight md:text-7xl">
@@ -108,8 +86,6 @@ export default async function Home() {
           </Card>
         </div>
       </section>
-
-      <SwithPrice products={products} />
     </>
   );
 }
