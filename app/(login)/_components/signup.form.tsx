@@ -10,7 +10,7 @@ import {
   InputGroupInput,
 } from '@/components/ui/input-group';
 import { Spinner } from '@/components/ui/spinner';
-import { authClient } from '@/lib/auth/auth-client';
+import { authClient } from '@/lib/auth/client';
 import { registerSchema } from '@/types/user';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight, MailIcon, UserIcon } from 'lucide-react';

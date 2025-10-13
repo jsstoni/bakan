@@ -5,7 +5,7 @@ import { Password } from '@/components/password';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { Spinner } from '@/components/ui/spinner';
-import { authClient } from '@/lib/auth/auth-client';
+import { authClient } from '@/lib/auth/client';
 import { registerSchema } from '@/types/user';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter, useSearchParams } from 'next/navigation';
