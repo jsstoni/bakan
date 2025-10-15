@@ -4,7 +4,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from '@/components/ui/input-group';
-import { EyeClosedIcon, EyeIcon, LockIcon } from 'lucide-react';
+import { EyeIcon, EyeOffIcon, LockIcon } from 'lucide-react';
 import { useState } from 'react';
 
 export function Password({ field }: { field: any }) {
@@ -21,7 +21,7 @@ export function Password({ field }: { field: any }) {
           size="icon-xs"
           onClick={() => setShow((prev) => !prev)}
         >
-          {show ? <EyeIcon /> : <EyeClosedIcon />}
+          {!show ? <EyeIcon /> : <EyeOffIcon />}
         </InputGroupButton>
       </InputGroupAddon>
     </InputGroup>
