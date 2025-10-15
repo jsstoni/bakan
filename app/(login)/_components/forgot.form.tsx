@@ -37,7 +37,9 @@ export function ForgotForm() {
         return toast.error(error.message);
       }
 
-      toast.success('Password reset email sent');
+      toast.success(
+        "If the email exists in our database, you'll receive an email."
+      );
       form.reset();
     }
   );
