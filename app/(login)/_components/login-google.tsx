@@ -1,6 +1,6 @@
 'use client';
 
-import Google from '@/components/google';
+import Google from '@/components/icons/google';
 import { Button } from '@/components/ui/button';
 import { authClient } from '@/lib/auth/client';
 

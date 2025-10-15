@@ -1,6 +1,6 @@
 'use client';
 
-import { GitHub } from '@/components/github-icon';
+import { GitHub } from '@/components/icons/github-icon';
 import { Button } from '@/components/ui/button';
 import { env } from '@/lib/env/env-client';
 import { useEffect, useState } from 'react';
