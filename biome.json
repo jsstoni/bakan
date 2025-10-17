@@ -28,7 +28,9 @@
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noUnknownAtRules": "off",
+        "noArrayIndexKey": "warn",
+        "noDoubleEquals": "warn"
       },
       "nursery": {
         "useSortedClasses": {
@@ -54,6 +56,7 @@
       "a11y": {
         "noSvgWithoutTitle": "off",
         "useKeyWithClickEvents": "warn",
+        "useSemanticElements": "warn",
         "noStaticElementInteractions": "warn"
       }
     },
