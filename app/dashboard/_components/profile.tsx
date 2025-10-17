@@ -2,6 +2,7 @@
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { ButtonGroup } from '@/components/ui/button-group';
 import {
   Popover,
   PopoverContent,
@@ -10,7 +11,8 @@ import {
 import { Skeleton } from '@/components/ui/skeleton';
 import { authClient } from '@/lib/auth/client';
 import { getInitials } from '@/lib/utils';
-import { LogOut } from 'lucide-react';
+import { LogOut, User } from 'lucide-react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export function Profile() {
@@ -40,12 +42,22 @@ export function Profile() {
           <AvatarFallback>{getInitials(session.user.name)}</AvatarFallback>
         </Avatar>
       </PopoverTrigger>
-      <PopoverContent align="end">
-        <p>{session.user.name}</p>
-        <p className="text-muted-foreground">{session.user.email}</p>
-        <Button size={'sm'} onClick={logout}>
-          <LogOut /> Logout
-        </Button>
+      <PopoverContent className="space-y-3" align="end">
+        <div>
+          <p>{session.user.name}</p>
+          <p className="text-muted-foreground">{session.user.email}</p>
+        </div>
+
+        <ButtonGroup>
+          <Button size={'sm'} asChild>
+            <Link href="/dashboard/profile">
+              <User /> My profile
+            </Link>
+          </Button>
+          <Button size={'sm'} onClick={logout}>
+            <LogOut /> Logout
+          </Button>
+        </ButtonGroup>
       </PopoverContent>
     </Popover>
   );
