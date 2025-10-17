@@ -1,16 +1,15 @@
 import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+  FieldError,
+  FieldLabel,
+  Field as UIField,
+} from '@/components/ui/field';
 import { cn } from '@/lib/utils';
-import type {
-  Control,
-  ControllerRenderProps,
-  FieldPath,
-  FieldValues,
+import {
+  type Control,
+  Controller,
+  type ControllerRenderProps,
+  type FieldPath,
+  type FieldValues,
 } from 'react-hook-form';
 
 interface FieldProps<
@@ -37,15 +36,15 @@ export function Field<
   className,
 }: FieldProps<TFieldValues, TName>) {
   return (
-    <FormField
+    <Controller
       control={control}
       name={name}
-      render={({ field }) => (
-        <FormItem className={cn(className)}>
-          {label && <FormLabel>{label}</FormLabel>}
-          <FormControl>{render(field)}</FormControl>
-          <FormMessage />
-        </FormItem>
+      render={({ field, fieldState }) => (
+        <UIField className={cn(className)} data-invalid={fieldState.invalid}>
+          {label && <FieldLabel>{label}</FieldLabel>}
+          {render(field)}
+          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+        </UIField>
       )}
     />
   );

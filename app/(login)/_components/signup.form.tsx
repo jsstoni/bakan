@@ -3,6 +3,7 @@
 import { Field } from '@/components/field';
 import { Password } from '@/components/password';
 import { Button } from '@/components/ui/button';
+import { FieldGroup } from '@/components/ui/field';
 import { Form } from '@/components/ui/form';
 import {
   InputGroup,
@@ -41,48 +42,54 @@ export function SignUpForm() {
   return (
     <Form {...form}>
       <form className="space-y-4" onSubmit={onSubmit}>
-        <Field
-          control={form.control}
-          name="name"
-          label="Name"
-          render={(field) => (
-            <InputGroup>
-              <InputGroupInput type="text" placeholder="jhon doe" {...field} />
-              <InputGroupAddon>
-                <UserIcon />
-              </InputGroupAddon>
-            </InputGroup>
-          )}
-        />
-        <Field
-          control={form.control}
-          name="email"
-          label="Email"
-          render={(field) => (
-            <InputGroup>
-              <InputGroupInput
-                type="email"
-                placeholder="Enter your email"
-                {...field}
-              />
-              <InputGroupAddon>
-                <MailIcon />
-              </InputGroupAddon>
-            </InputGroup>
-          )}
-        />
-        <Field
-          control={form.control}
-          name="password"
-          label="Password"
-          render={(field) => <Password field={field} />}
-        />
-        <Field
-          control={form.control}
-          name="repassword"
-          label="Repeat password"
-          render={(field) => <Password field={field} />}
-        />
+        <FieldGroup>
+          <Field
+            control={form.control}
+            name="name"
+            label="Name"
+            render={(field) => (
+              <InputGroup>
+                <InputGroupInput
+                  type="text"
+                  placeholder="jhon doe"
+                  {...field}
+                />
+                <InputGroupAddon>
+                  <UserIcon />
+                </InputGroupAddon>
+              </InputGroup>
+            )}
+          />
+          <Field
+            control={form.control}
+            name="email"
+            label="Email"
+            render={(field) => (
+              <InputGroup>
+                <InputGroupInput
+                  type="email"
+                  placeholder="Enter your email"
+                  {...field}
+                />
+                <InputGroupAddon>
+                  <MailIcon />
+                </InputGroupAddon>
+              </InputGroup>
+            )}
+          />
+          <Field
+            control={form.control}
+            name="password"
+            label="Password"
+            render={(field) => <Password field={field} />}
+          />
+          <Field
+            control={form.control}
+            name="repassword"
+            label="Repeat password"
+            render={(field) => <Password field={field} />}
+          />
+        </FieldGroup>
         <p>
           Already have an account?{' '}
           <Link className="font-bold hover:underline" href="/signin">

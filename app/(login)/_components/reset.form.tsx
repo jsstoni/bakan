@@ -3,6 +3,7 @@
 import { Field } from '@/components/field';
 import { Password } from '@/components/password';
 import { Button } from '@/components/ui/button';
+import { FieldGroup } from '@/components/ui/field';
 import { Form } from '@/components/ui/form';
 import { Spinner } from '@/components/ui/spinner';
 import { authClient } from '@/lib/auth/client';
@@ -51,19 +52,21 @@ export function ResetForm() {
   return (
     <Form {...form}>
       <form className="space-y-4" onSubmit={onSubmit}>
-        <Field
-          control={form.control}
-          name="password"
-          label="Password"
-          render={(field) => <Password field={field} />}
-        />
+        <FieldGroup>
+          <Field
+            control={form.control}
+            name="password"
+            label="Password"
+            render={(field) => <Password field={field} />}
+          />
 
-        <Field
-          control={form.control}
-          name="repassword"
-          label="Repeat password"
-          render={(field) => <Password field={field} />}
-        />
+          <Field
+            control={form.control}
+            name="repassword"
+            label="Repeat password"
+            render={(field) => <Password field={field} />}
+          />
+        </FieldGroup>
 
         <Button className="w-full" disabled={form.formState.isSubmitting}>
           {form.formState.isSubmitting && <Spinner />} Reset password

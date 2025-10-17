@@ -2,6 +2,7 @@
 
 import { Field } from '@/components/field';
 import { Button } from '@/components/ui/button';
+import { FieldGroup } from '@/components/ui/field';
 import { Form } from '@/components/ui/form';
 import {
   InputGroup,
@@ -47,23 +48,25 @@ export function ForgotForm() {
   return (
     <Form {...form}>
       <form className="space-y-4" onSubmit={onSubmit}>
-        <Field
-          control={form.control}
-          name="email"
-          label="Email"
-          render={(field) => (
-            <InputGroup>
-              <InputGroupInput
-                type="email"
-                placeholder="Enter your email"
-                {...field}
-              />
-              <InputGroupAddon>
-                <MailIcon />
-              </InputGroupAddon>
-            </InputGroup>
-          )}
-        />
+        <FieldGroup>
+          <Field
+            control={form.control}
+            name="email"
+            label="Email"
+            render={(field) => (
+              <InputGroup>
+                <InputGroupInput
+                  type="email"
+                  placeholder="Enter your email"
+                  {...field}
+                />
+                <InputGroupAddon>
+                  <MailIcon />
+                </InputGroupAddon>
+              </InputGroup>
+            )}
+          />
+        </FieldGroup>
 
         <Button
           className="w-full"
