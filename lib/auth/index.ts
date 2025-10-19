@@ -2,11 +2,13 @@ import { env } from '@/lib/env';
 import { env as envClient } from '@/lib/env/env-client';
 import { stripe as stripeClient } from '@/lib/payments/stripe';
 import { db } from '@/server/db';
-import { sendResetPassword } from '@/server/email';
+import { sendResetPassword, sendVerificationEmail } from '@/server/email';
 import { stripe } from '@better-auth/stripe';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { nextCookies } from 'better-auth/next-js';
+
+const expiresIn = 60 * 60 * 24;
 
 export const auth = betterAuth({
   baseURL: envClient.NEXT_PUBLIC_BASE_URL,
@@ -15,8 +17,16 @@ export const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
-    resetPasswordTokenExpiresIn: 3600,
+    requireEmailVerification: true,
+    resetPasswordTokenExpiresIn: expiresIn,
     sendResetPassword,
+  },
+  emailVerification: {
+    sendOnSignIn: true,
+    sendOnSignUp: true,
+    autoSignInAfterVerification: true,
+    sendVerificationEmail,
+    expiresIn,
   },
   socialProviders: {
     google: {

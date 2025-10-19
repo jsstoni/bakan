@@ -30,6 +30,7 @@ export function SignUpForm() {
       name: data.name,
       email: data.email,
       password: data.password,
+      callbackURL: `/verify-email?e=${data.email}`,
     });
 
     if (error) {
