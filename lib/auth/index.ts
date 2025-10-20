@@ -3,10 +3,12 @@ import { env as envClient } from '@/lib/env/env-client';
 import { stripe as stripeClient } from '@/lib/payments/stripe';
 import { db } from '@/server/db';
 import { sendResetPassword, sendVerificationEmail } from '@/server/email';
+import { ac, admin, user } from './permissions';
 import { stripe } from '@better-auth/stripe';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { nextCookies } from 'better-auth/next-js';
+import { admin as adminPlugin } from 'better-auth/plugins';
 
 const expiresIn = 60 * 60 * 24;
 
@@ -14,6 +16,7 @@ export const auth = betterAuth({
   baseURL: envClient.NEXT_PUBLIC_BASE_URL,
   database: drizzleAdapter(db, {
     provider: 'pg',
+    usePlural: true,
   }),
   emailAndPassword: {
     enabled: true,
@@ -36,6 +39,13 @@ export const auth = betterAuth({
     },
   },
   plugins: [
+    adminPlugin({
+      ac,
+      roles: {
+        admin,
+        user,
+      },
+    }),
     stripe({
       stripeClient,
       stripeWebhookSecret: env.STRIPE_WEBHOOK_SECRET,
