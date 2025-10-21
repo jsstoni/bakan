@@ -1,73 +1,11 @@
 import { Profile } from '@/app/dashboard/_components/profile';
+import { Menu, type NavigationLinks } from '@/components/menu';
 import { ToggleTheme } from '@/components/toggle-theme';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
-import { Home, type LucideIcon, Menu } from 'lucide-react';
-import type { Route } from 'next';
-import Link from 'next/link';
-
-type SubMenu<T extends string = string> = {
-  icon?: LucideIcon;
-  label: string;
-  href: Route<T> | URL;
-};
-
-type NavigationLinks = {
-  items?: SubMenu[];
-} & SubMenu;
+import { Home } from 'lucide-react';
 
 const navigationLinks: NavigationLinks[] = [
   { href: '/dashboard', label: 'Home', icon: Home },
-  {
-    href: '#',
-    label: 'Menus',
-    icon: Menu,
-    items: [{ href: '#', label: 'Option 01' }],
-  },
 ];
-
-const menuItem = (item: NavigationLinks) => {
-  if (item.items) {
-    return (
-      <NavigationMenuItem key={item.label}>
-        <NavigationMenuTrigger className="font-medium">
-          {item.label}
-        </NavigationMenuTrigger>
-        <NavigationMenuContent>
-          {item.items.map((subItem) => (
-            <NavigationMenuLink
-              asChild
-              key={subItem.label}
-              className="w-40 font-medium"
-            >
-              <Link href={subItem.href}>{subItem.label}</Link>
-            </NavigationMenuLink>
-          ))}
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    );
-  }
-
-  return (
-    <NavigationMenuItem key={item.label}>
-      <NavigationMenuLink
-        className="group flex flex-row items-center font-medium"
-        asChild
-      >
-        <Link href={item.href}>
-          {item.icon && <item.icon />}
-          {item.label}
-        </Link>
-      </NavigationMenuLink>
-    </NavigationMenuItem>
-  );
-};
 
 export function TopBar() {
   return (
@@ -85,11 +23,7 @@ export function TopBar() {
 
       <div className="border-b py-1 max-md:hidden">
         <div className="container mx-auto flex items-center justify-between gap-6">
-          <NavigationMenu viewport={false}>
-            <NavigationMenuList>
-              {navigationLinks.map((item) => menuItem(item))}
-            </NavigationMenuList>
-          </NavigationMenu>
+          <Menu links={navigationLinks} />
         </div>
       </div>
     </header>
