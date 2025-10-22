@@ -3,12 +3,7 @@
 import { Field } from '@/components/field';
 import { Password } from '@/components/password';
 import { Button } from '@/components/ui/button';
-import {
-  FieldDescription,
-  FieldGroup,
-  FieldLegend,
-  FieldSet,
-} from '@/components/ui/field';
+import { FieldGroup, FieldLegend, FieldSet } from '@/components/ui/field';
 import { Form } from '@/components/ui/form';
 import { Spinner } from '@/components/ui/spinner';
 import { authClient } from '@/lib/auth/client';
