@@ -1,10 +1,13 @@
+import { AdminMenu } from '@/app/dashboard/_components/admin-menu';
 import { Profile } from '@/app/dashboard/_components/profile';
+import { Logo } from '@/components/icons/logo';
 import { Menu, type NavigationLinks } from '@/components/menu';
 import { ToggleTheme } from '@/components/toggle-theme';
 import { Home } from 'lucide-react';
 
 const navigationLinks: NavigationLinks[] = [
   { href: '/dashboard', label: 'Home', icon: Home },
+  { href: '/dashboard/builder', label: 'Page Builder', icon: Home },
 ];
 
 export function TopBar() {
@@ -12,7 +15,10 @@ export function TopBar() {
     <header className="sticky top-0 z-50 w-full bg-background/90 backdrop-blur">
       <div className="border-b">
         <div className="container mx-auto flex h-14 items-center gap-6">
-          <h1>Logo</h1>
+          <h1 className="flex items-center gap-2 font-bold text-xl">
+            <Logo className="size-6 fill-black dark:fill-white" />
+            Bakan
+          </h1>
 
           <div className="ml-auto flex items-center gap-2">
             <ToggleTheme />
@@ -24,6 +30,8 @@ export function TopBar() {
       <div className="border-b py-1 max-md:hidden">
         <div className="container mx-auto flex items-center justify-between gap-6">
           <Menu links={navigationLinks} />
+
+          <AdminMenu />
         </div>
       </div>
     </header>

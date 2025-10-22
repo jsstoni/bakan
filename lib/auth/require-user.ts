@@ -20,3 +20,8 @@ export const requireUser = cache(async () => {
 
   return !!session;
 });
+
+export const isAdmin = cache(async () => {
+  const session = await getSession();
+  return !!session && session.role === 'admin';
+});
