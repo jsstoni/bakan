@@ -1,4 +1,4 @@
-import { env } from '@/lib/env/env-client';
+import { env } from '@/lib/env/client';
 import { GoogleAnalytics, sendGAEvent } from '@next/third-parties/google';
 import z from 'zod';
 

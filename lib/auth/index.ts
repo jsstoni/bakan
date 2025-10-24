@@ -1,5 +1,5 @@
 import { env } from '@/lib/env';
-import { env as envClient } from '@/lib/env/env-client';
+import { env as envClient } from '@/lib/env/client';
 import { stripe as stripeClient } from '@/lib/payments/stripe';
 import { db } from '@/server/db';
 import { sendResetPassword, sendVerificationEmail } from '@/server/email';

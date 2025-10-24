@@ -1,7 +1,7 @@
 import { ResetPasswordEmail } from '@/components/email/reset-password';
 import { VerifyEmail } from '@/components/email/verify-email';
 import { resend } from '@/lib/email';
-import { env as envClient } from '@/lib/env/env-client';
+import { env as envClient } from '@/lib/env/client';
 import { APIError, type User } from 'better-auth';
 
 type Send = {

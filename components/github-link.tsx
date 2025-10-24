@@ -2,7 +2,7 @@
 
 import { GitHub } from '@/components/icons/github-icon';
 import { Button } from '@/components/ui/button';
-import { env } from '@/lib/env/env-client';
+import { env } from '@/lib/env/client';
 import { useEffect, useState } from 'react';
 
 export function GithubLink() {
