@@ -10,10 +10,10 @@ import type { LucideIcon } from 'lucide-react';
 import type { Route } from 'next';
 import Link from 'next/link';
 
-type SubMenu<T extends string = string> = {
+type SubMenu = {
   icon?: LucideIcon;
   label: string;
-  href: Route<T> | URL;
+  href: string;
 };
 
 export type NavigationLinks = {
@@ -34,7 +34,7 @@ const menuItem = (item: NavigationLinks) => {
               key={subItem.label}
               className="w-40 font-medium"
             >
-              <Link href={subItem.href}>{subItem.label}</Link>
+              <Link href={subItem.href as Route}>{subItem.label}</Link>
             </NavigationMenuLink>
           ))}
         </NavigationMenuContent>
@@ -48,7 +48,7 @@ const menuItem = (item: NavigationLinks) => {
         className="group flex flex-row items-center font-medium"
         asChild
       >
-        <Link href={item.href}>
+        <Link href={item.href as Route}>
           {item.icon && <item.icon />}
           {item.label}
         </Link>

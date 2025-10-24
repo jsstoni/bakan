@@ -4,6 +4,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu';
+import type { Route } from 'next';
 import Link from 'next/link';
 
 type Menu = { title: string; href: string };
@@ -20,7 +21,7 @@ export function Navigation() {
           // biome-ignore lint/suspicious/noArrayIndexKey: <noIndex>
           <NavigationMenuItem key={key}>
             <NavigationMenuLink asChild>
-              <Link href={item.href}>{item.title}</Link>
+              <Link href={item.href as Route}>{item.title}</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
