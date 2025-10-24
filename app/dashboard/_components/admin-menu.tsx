@@ -3,7 +3,7 @@ import { isAdmin } from '@/lib/auth/require-user';
 import { BarChart, User } from 'lucide-react';
 
 const navigationLinks: NavigationLinks[] = [
-  { href: '/dashboard', label: 'Users', icon: User },
+  { href: '/dashboard/users', label: 'Users', icon: User },
   { href: '/dashboard', label: 'Analytics', icon: BarChart },
 ];
 

@@ -7,7 +7,6 @@ import { Home } from 'lucide-react';
 
 const navigationLinks: NavigationLinks[] = [
   { href: '/dashboard', label: 'Home', icon: Home },
-  { href: '/dashboard/builder', label: 'Page Builder', icon: Home },
 ];
 
 export function TopBar() {

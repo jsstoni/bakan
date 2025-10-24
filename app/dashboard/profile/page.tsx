@@ -1,4 +1,4 @@
-import { UpdatePassword } from '@/app/dashboard/profile/_components/update-password';
+import { UpdatePassword } from '@/app/dashboard/_components/update-password';
 
 export default function Profile() {
   return (
