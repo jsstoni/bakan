@@ -1,14 +1,16 @@
 # Bakan
-NEXT.js APP Router
+NEXT.js 16 App Router
 
 ### Packages
 
 * Environment variables - @t3-oss/env-nextjs
-* Schema validation - Zod
+* Database - DrizzleORM
 * Authentication - better-auth
-* UI - Shadcn
 * Payments - Stripe
+* UI - Shadcn
 * Analytics - Google Analytics
+* Schema validation - Zod
+* Security - Arcjet
 
 ### Stripe
 
@@ -33,3 +35,25 @@ This project uses Stripe for payment processing. To set up Stripe, follow these 
    ```
    STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
    ```
+
+### Better-Auth ~ Stripe
+
+I recommend using static prices by copying only the price ID from the Stripe dashboard.
+
+### Environment variables
+
+there are two files in the `lib/env` folder `index` with the server environment and `client` with the client environment
+
+| KEY | DOCS |
+| --- | --- |
+| NEXT_PUBLIC_BASE_URL | |
+| NEXT_PUBLIC_REPO_URL | |
+| DATABASE_URL | |
+| STRIPE_SECRET_KEY | |
+| STRIPE_WEBHOOK_SECRET | |
+| BETTER_AUTH_SECRET | |
+| RESEND_API_KEY | |
+| NEXT_PUBLIC_EMAIL_HOST | |
+| GOOGLE_CLIENT_ID | |
+| GOOGLE_CLIENT_SECRET | |
+| NEXT_PUBLIC_GAID | |
