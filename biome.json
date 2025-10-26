@@ -23,6 +23,11 @@
       "semicolons": "always"
     }
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "linter": {
     "enabled": true,
     "rules": {
@@ -33,6 +38,7 @@
         "noDoubleEquals": "warn"
       },
       "nursery": {
+        "noNextAsyncClientComponent": "error",
         "useSortedClasses": {
           "level": "warn",
           "fix": "safe",
@@ -42,6 +48,7 @@
         }
       },
       "style": {
+        "noHeadElement": "error",
         "noParameterAssign": "error",
         "useAsConstAssertion": "error",
         "useDefaultParameterLast": "error",
