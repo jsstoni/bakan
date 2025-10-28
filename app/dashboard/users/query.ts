@@ -1,7 +1,7 @@
+import 'server-only';
 import { auth } from '@/lib/auth';
 import type { UserWithRole } from 'better-auth/plugins/admin';
 import { headers } from 'next/headers';
-import 'server-only';
 
 type ListUsersResult = {
   users: UserWithRole[];
