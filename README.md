@@ -3,14 +3,15 @@ NEXT.js 16 App Router
 
 ### Packages
 
-* Environment variables - @t3-oss/env-nextjs
 * Database - DrizzleORM
 * Authentication - better-auth
 * Payments - Stripe
 * UI - Shadcn
 * Analytics - Google Analytics
 * Schema validation - Zod
+* Environment variables - @t3-oss/env-nextjs
 * Security - Arcjet
+* Code linting and formatting - Biome
 
 ### Stripe
 
