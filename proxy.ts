@@ -1,4 +1,6 @@
 import { createMiddleware, defaults, type Options } from '@nosecone/next';
+import { getSessionCookie } from 'better-auth/cookies';
+import { type NextRequest, NextResponse } from 'next/server';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -37,4 +39,17 @@ const nonceOptions: Options = {
   },
 };
 
-export default createMiddleware(nonceOptions);
+const securityHeaders = createMiddleware(nonceOptions);
+
+export function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  if (pathname.startsWith('/dashboard')) {
+    const cookie = getSessionCookie(request);
+    if (!cookie) {
+      return NextResponse.redirect(new URL('/signin', request.url));
+    }
+  }
+
+  return securityHeaders();
+}

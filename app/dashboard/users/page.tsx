@@ -17,13 +17,12 @@ import {
 import { BanIcon, CheckCircle2Icon, XCircleIcon } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
-export default async function Users(props: PageProps<'/dashboard/users'>) {
-  const { page } = await props.searchParams;
-  const pageNumber = Number(page) || 1;
-
+export default async function Users({
+  searchParams,
+}: PageProps<'/dashboard/users'>) {
+  const pageNumber = Number((await searchParams).page) || 1;
   const allUsers = await getUsers(pageNumber).catch(() => notFound());
   if (!allUsers) notFound();
-
   const totalPages = Math.ceil(allUsers.total / 10);
 
   return (

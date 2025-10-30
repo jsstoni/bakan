@@ -4,6 +4,7 @@ import { Logo } from '@/components/icons/logo';
 import { Menu, type NavigationLinks } from '@/components/menu';
 import { ToggleTheme } from '@/components/toggle-theme';
 import { Home } from 'lucide-react';
+import { Suspense } from 'react';
 
 const navigationLinks: NavigationLinks[] = [
   { href: '/dashboard', label: 'Home', icon: Home },
@@ -30,7 +31,9 @@ export function TopBar() {
         <div className="container mx-auto flex items-center justify-between gap-6">
           <Menu links={navigationLinks} />
 
-          <AdminMenu />
+          <Suspense>
+            <AdminMenu />
+          </Suspense>
         </div>
       </div>
     </header>
