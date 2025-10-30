@@ -53,3 +53,8 @@ export function proxy(request: NextRequest) {
 
   return securityHeaders();
 }
+
+export const config = {
+  // Exclude API routes, static files, image, and files
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+};
